@@ -113,6 +113,3 @@ src/
 
 ---
 
-## 📜 License
-
-This project is built for learning and assessment purposes.
