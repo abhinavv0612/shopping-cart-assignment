@@ -1,13 +1,191 @@
+/* 🌌 Fancy Background */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at 20% 20%, #c7d2fe, transparent 40%),
+              radial-gradient(circle at 80% 10%, #fbcfe8, transparent 40%),
+              radial-gradient(circle at 50% 80%, #a7f3d0, transparent 40%),
+              #f1f5f9;
+  min-height: 100vh;
+  color: #1f2937;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* 🧱 App Container */
+.app {
+  max-width: 1000px;
+  margin: 20px auto 50px;
+  padding: 20px;
 }
+
+/* 🏷 Title */
+h1 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 30px;
+  color: #0f172a;
+}
+
+/* ✨ Glass Card Style */
+.cart-container,
+.add-product,
+.cart-item,
+.totals {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  transition: all 0.2s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+}
+
+/* 🛍 Cart Item Layout */
+.cart-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.cart-item-info h4 {
+  margin: 0 0 5px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.cart-item-info p {
+  margin: 2px 0;
+  color: #64748b;
+}
+
+/* 🎛 Controls */
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ✏ Inputs */
+input[type="number"],
+input[type="text"],
+select {
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  background: #ffffffcc;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #6366f1;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.25);
+}
+
+/* 🔘 Buttons */
+button {
+  background: linear-gradient(135deg, #6366f1, #9333ea);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(99,102,241,0.35);
+}
+
+/* 🧮 Totals Section */
+.totals {
+  text-align: right;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 15px;
+}
+
+.totals h3 {
+  margin: 0 0 6px;
+  font-weight: 500;
+}
+
+.totals h2 {
+  margin: 0;
+  font-size: 20px;   /* 👈 slightly smaller */
+  font-weight: 600;
+  color: #16a34a;
+}
+
+
+/* ➕ Add Product Layout */
+.add-product {
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.add-product h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* 🌍 Currency Selector */
+.currency-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+/* 📱 Mobile */
+@media (max-width: 700px) {
+  .cart-item {
+    grid-template-columns: 1fr;
+  }
+
+  .add-product {
+    grid-template-columns: 1fr;
+  }
+
+  .totals {
+    text-align: left;
+  }
+}
+
+/* 💸 Discount Section Styling */
+.discount-section {
+  margin-bottom: 22px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #eef2ff, #fdf2f8); /* soft highlight */
+  border: 1px solid #e0e7ff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+.discount-section input {
+  width: 100px;      
+  padding: 8px 12px;
+}
+
+/* Move label slightly right */
+.discount-section label {
+  margin-left: 6px;   /* 👈 shifts right */
+  font-weight: 500;
+  color: #374151;
+}
+
+

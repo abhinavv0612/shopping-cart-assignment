@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import Cart from "./components/Cart";
+import { productList } from "./data/products";
+import "./index.css";
 
 function App() {
+  
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : productList;
+  });
+
+  
+  const [discount, setDiscount] = useState(0);
+
+ 
+  const [currency, setCurrency] = useState("USD");
+
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Shopping Cart</h1>
+
+      <Cart
+        cart={cart}
+        setCart={setCart}
+        discount={discount}
+        setDiscount={setDiscount}
+        currency={currency}
+        setCurrency={setCurrency}
+      />
     </div>
   );
 }
